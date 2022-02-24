@@ -18,7 +18,7 @@ public class DevConfig {
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")/*pega o valor estipulado no application.properties
 	deste perfil*/
-	private String ddl;
+	private String ddl;//Data Definition Language
 	
 	@Bean
 	public boolean instanciaDB() {

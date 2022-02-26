@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile;
 import com.tiago.os.service.DBservice;
 
 @Configuration
-@Profile("test")/*Através desta anotação o aplication.properties
+@Profile("teste")/*Através desta anotação o aplication.properties
 identifica que temos um perfil e vamos chama-lo de test*/
 public class TesteConfig {
 

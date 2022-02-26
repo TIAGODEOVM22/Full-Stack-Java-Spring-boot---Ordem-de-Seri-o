@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.tiago.os.model.Tecnico;
 import com.tiago.os.repository.TecnicoRepository;
+import com.tiago.os.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class TecnicoService {
@@ -22,6 +23,9 @@ public class TecnicoService {
 		/*pode encontrar um tecnico no BD ou não
 		 * por isso uso o OPTIONAL*/
 		Optional<Tecnico> obj = tecnicoRepository.findById(id);
-		return obj.orElse(null);//pode ou não encontrar orElse, se não retorna NULL, ainda vamos tratar esse retorno...
+		return obj.orElseThrow(() -> new ObjectNotFoundException(/*criação de uma função anonima. -> */
+				"Objeto não encontrado! id: " + id + ", tipo: " + Tecnico.class.getName()));
+		/*Apenas a criação dessa exceção não basta
+		 * vamos criar uma classe controller exceptionHandler em um sub pacote no Controller*/
 	}
 }

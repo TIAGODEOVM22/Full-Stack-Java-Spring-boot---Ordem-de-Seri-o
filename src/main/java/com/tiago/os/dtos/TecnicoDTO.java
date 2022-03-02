@@ -19,7 +19,7 @@ public class TecnicoDTO implements Serializable{
 	
 	public TecnicoDTO() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public TecnicoDTO(Tecnico obj) {/*não recebe os atributos do construtor DTO e sim um OBJETO do Tecnico Model, fazendo a converção*/
@@ -64,6 +64,5 @@ public class TecnicoDTO implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-	
+	}	
 }

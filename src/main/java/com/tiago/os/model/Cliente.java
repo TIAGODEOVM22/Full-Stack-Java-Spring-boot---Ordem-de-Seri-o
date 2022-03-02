@@ -32,7 +32,4 @@ public class Cliente extends Pessoa {
 	public void setList(List<Os> list) {
 		this.list = list;
 	}
-	
-	
-
 }

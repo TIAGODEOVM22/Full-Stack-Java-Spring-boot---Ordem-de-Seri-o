@@ -1,10 +1,12 @@
 package com.tiago.os.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tiago.os.dtos.TecnicoDTO;
 import com.tiago.os.model.Tecnico;
 import com.tiago.os.repository.TecnicoRepository;
 import com.tiago.os.service.exceptions.ObjectNotFoundException;
@@ -15,10 +17,12 @@ public class TecnicoService {
 	@Autowired
 	private TecnicoRepository tecnicoRepository;
 	
+	
 	/*criei esse metodo para retornar o id
 	 * porém atraves desse pacote eu não tenho acesso ao BD
 	 * então eu vou fazer o import da interface TECNICOREPOSITORY*/
 	
+
 	public Tecnico findById(Integer id) {
 		/*pode encontrar um tecnico no BD ou não
 		 * por isso uso o OPTIONAL*/
@@ -27,5 +31,13 @@ public class TecnicoService {
 				"Objeto não encontrado! id: " + id + ", tipo: " + Tecnico.class.getName()));
 		/*Apenas a criação dessa exceção não basta
 		 * vamos criar uma classe controller exceptionHandler em um sub pacote no Controller*/
+	}
+	
+	public List<Tecnico> findAll(){
+		return tecnicoRepository.findAll();
+	}
+	
+	public Tecnico salvarTecnico(TecnicoDTO tecDto) { //Parametro tem que ser da Classe DTO apesar do tipo ser da classe MODEL
+		return tecnicoRepository.save(new Tecnico(null, tecDto.getNome(), tecDto.getCpf(), tecDto.getTelefone()));
 	}
 }

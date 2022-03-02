@@ -23,12 +23,10 @@ public class Tecnico extends Pessoa implements Serializable{
 	
 	public Tecnico() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Tecnico(Integer id, String nome, String cpf, String telefone) {
 		super(id, nome, cpf, telefone);
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Os> getList() {
@@ -37,7 +35,5 @@ public class Tecnico extends Pessoa implements Serializable{
 
 	public void setList(List<Os> list) {
 		this.list = list;
-	}
-
-	
+	}	
 }

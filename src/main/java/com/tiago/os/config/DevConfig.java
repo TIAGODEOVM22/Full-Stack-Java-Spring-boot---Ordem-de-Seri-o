@@ -16,8 +16,7 @@ public class DevConfig {
 	@Autowired
 	private DBservice dBservice;
 	
-	@Value("${spring.jpa.hibernate.ddl-auto}")/*pega o valor estipulado no application.properties
-	deste perfil*/
+	@Value("${spring.jpa.hibernate.ddl-auto}")/*pega o valor estipulado no application.properties deste perfil*/
 	private String ddl;//Data Definition Language
 	
 	@Bean
@@ -30,5 +29,3 @@ public class DevConfig {
 		return false;
 	}
 }
-
-

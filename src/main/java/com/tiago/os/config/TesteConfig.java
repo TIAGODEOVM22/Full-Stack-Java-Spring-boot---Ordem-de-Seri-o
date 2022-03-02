@@ -8,19 +8,16 @@ import org.springframework.context.annotation.Profile;
 import com.tiago.os.service.DBservice;
 
 @Configuration
-@Profile("teste")/*Através desta anotação o aplication.properties
-identifica que temos um perfil e vamos chama-lo de test*/
+@Profile("test")/*Através desta anotação o aplication.properties identifica que temos um perfil e vamos chama-lo de --->  test
+sempre que este perfil estiver ativo ira chamar o metodo instanciaDB*/
 public class TesteConfig {
-
+	
 	@Autowired
-	private DBservice dBservice;
+	private DBservice dbservice;
+	
 	
 	@Bean
 	public void instanciaDB() {
-		this.dBservice.instaciaDB();
-	}
-	
-	
+		this.dbservice.instaciaDB();
+	}	
 }
-
-

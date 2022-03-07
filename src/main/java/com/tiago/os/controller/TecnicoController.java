@@ -42,11 +42,13 @@ public class TecnicoController {
 
 	@GetMapping
 	public ResponseEntity<List<TecnicoDTO>> findAll() {
-		List<TecnicoDTO> listDTO = tecnicoService.findAll().stream().map(obj -> new TecnicoDTO(obj))
+		List<TecnicoDTO> listDTO = tecnicoService.findAll()
+				.stream().map(obj -> new TecnicoDTO(obj))
 				.collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
-
+	
+	/*____________________TAMBÉM PODE SER FEITO DESSE JEITO O BUSCAR TODOS___________________________*/
 	/*@GetMapping
 	  public ResponseEntity<List<TecnicoDTO>>findAll(){ 
 		  List<Tecnico> list = tecnicoService.findAll(); List<TecnicoDTO> listDTO = new ArrayList<>();
@@ -54,14 +56,12 @@ public class TecnicoController {
 	      return ResponseEntity.ok().body(listDTO); 
 	      }*/
 	
+	/*_________________CREATE DE TECNICO PASSANDO A URI DO NOVO OBJ CRIADO NO BD_________________*/
 	@PostMapping
 	public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO objDTO){
-		Tecnico tecModel = tecnicoService.salvarTecnico(objDTO);//Tecnico MODEL recebe um tecnico DTO
-		
-		/*passa a URI do novo objeto salvo no BD*/
+		Tecnico tecModel = tecnicoService.create(objDTO);/*Tecnico MODEL recebe um tecnico DTO*/
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(tecModel.getId()).toUri();
-		
 		return ResponseEntity.created(uri).build();
 	}
+	
 }
-

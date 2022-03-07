@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.tiago.os.service.exceptions.DataIntegratyViolationException;
 import com.tiago.os.service.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
@@ -28,5 +29,13 @@ public class ControllerExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);/*no corpo da resposta nós passamos o StandardError "error"*/
 		
 	}
-
+	
+	/*MANIPULADOR DA CLASSE DataIntegratyViolationException.class*/
+	@ExceptionHandler(DataIntegratyViolationException.class)
+	public ResponseEntity<StandardError> objectNotFoundException(DataIntegratyViolationException e){
+			StandardError error = new StandardError(System.currentTimeMillis(),
+					HttpStatus.BAD_REQUEST.value(), e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+			
+		}
 }

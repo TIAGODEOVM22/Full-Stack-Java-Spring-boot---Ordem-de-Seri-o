@@ -2,6 +2,8 @@ package com.tiago.os.dtos;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.tiago.os.model.Tecnico;
@@ -11,10 +13,15 @@ public class TecnicoDTO implements Serializable{
 	
 	
 	private Integer id;
+	
+	@NotEmpty(message = "O campo NOME é obrigatório")
 	private String nome;
 	
 	@CPF
+	@NotEmpty(message = "O campo CPF é obrigatório")
 	private String cpf;
+	
+	@NotEmpty(message = "O campo TELEFONE é obrigatório")
 	private String telefone;
 	
 	public TecnicoDTO() {

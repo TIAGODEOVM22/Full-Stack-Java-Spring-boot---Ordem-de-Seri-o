@@ -1,6 +1,5 @@
 package com.tiago.os.model;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -11,9 +10,8 @@ import javax.persistence.Id;
 import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
-public abstract class Pessoa  implements Serializable{
-	private static final long serialVersionUID = 1L;
-
+public abstract class Pessoa{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	/*o banco que vai criar os id*/

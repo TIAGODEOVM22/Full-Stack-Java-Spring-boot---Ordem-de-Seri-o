@@ -8,8 +8,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente extends Pessoa {
-	/*não contem nem um atributo adicional, todos são da superclasse*/
-	
+	private static final long serialVersionUID = 1L;
 	/*Referente ao Diagrama
 	 * zero ou muitas Os*/
 	@OneToMany(mappedBy = "cliente")

@@ -16,6 +16,7 @@ import com.tiago.os.model.enuns.Status;
 
 @Entity
 public class Os {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -25,6 +26,7 @@ public class Os {
 	
 	@JsonFormat(pattern = "dd/MM/yyy HH:mm")
 	private LocalDateTime dataFechamento;
+	
 	private Integer prioridade; /*passou a ser integer*/
 	private String observacoes;
 	private Integer status; /*passou a ser integer*/

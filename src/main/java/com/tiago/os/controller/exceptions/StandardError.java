@@ -12,7 +12,7 @@ public class StandardError implements Serializable{
 	
 	public StandardError() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public StandardError(long timestamp, Integer status, String error) {

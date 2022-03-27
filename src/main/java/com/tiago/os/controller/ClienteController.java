@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.tiago.os.dtos.ClienteDTO;
 import com.tiago.os.model.Cliente;
 import com.tiago.os.service.ClienteService;
 
+@CrossOrigin("*")
 @RestController // classe controladora gerenciando as requisições http
 @RequestMapping(value="/clientes") // endpoint inicial, ou seja nome da url
 public class ClienteController {

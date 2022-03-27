@@ -8,9 +8,11 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,7 @@ import com.tiago.os.dtos.OsDTO;
 import com.tiago.os.model.Os;
 import com.tiago.os.service.OsService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/os") /*endPoint Inicial para acessar os recursos da classe OS*/
 public class OsController {
@@ -56,6 +59,14 @@ public class OsController {
 		
 		/*Criamos a URI de acesso a OS que esta sendo criada*/
 		
+	}
+	@PutMapping
+	public ResponseEntity<OsDTO> update(@Valid @RequestBody OsDTO obj){
+		obj = new OsDTO(osService.update(obj));
+		return ResponseEntity.ok().body(obj);
+		
+		/*criamos esse método de maneira diferente da classe tecnico afim
+		 * de aprendermos diversas maneiras de atualizar um OBJETO*/
 	}
 	
 }

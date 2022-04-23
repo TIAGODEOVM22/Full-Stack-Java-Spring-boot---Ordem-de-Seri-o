@@ -81,7 +81,7 @@ public class OsService {
 		if(newObj.getStatus().getCod().equals(2)) {
 			newObj.setDataFechamento(LocalDateTime.now());
 			/*pego o status e o cod desse status e vejo se é igual a 2
-			 * se for ele salva a data de fechamento com o horaio local*/
+			 * se for ele salva a data de fechamento com o horario local*/
 		}
 
 		return osRepository.save(newObj);

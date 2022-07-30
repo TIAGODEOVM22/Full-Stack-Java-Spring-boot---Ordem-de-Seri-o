@@ -49,11 +49,6 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
-		<!--  <dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-		</dependency> -->
  
 		<dependency>
 			<groupId>mysql</groupId>
@@ -76,4 +71,18 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<proxies>
+  	 <proxy>
+      <id> exemplo-proxy </id>
+      <active> verdadeiro </active>
+      <protocolo> http </protocolo>
+      <host> proxy.example.com </host>
+      <port> 8080 </port>
+      <username> proxyuser </username>
+      <password> alguma senha </password>
+      <nonProxyHosts> www.google.com|*.example.com </nonProxyHosts>
+    </proxy>
+  </proxies>
+ 
 </project>

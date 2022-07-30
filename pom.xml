@@ -71,18 +71,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<proxies>
-  	 <proxy>
-      <id> exemplo-proxy </id>
-      <active> verdadeiro </active>
-      <protocolo> http </protocolo>
-      <host> proxy.example.com </host>
-      <port> 8080 </port>
-      <username> proxyuser </username>
-      <password> alguma senha </password>
-      <nonProxyHosts> www.google.com|*.example.com </nonProxyHosts>
-    </proxy>
-  </proxies>
  
 </project>
